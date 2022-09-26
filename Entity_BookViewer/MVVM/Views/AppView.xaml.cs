@@ -55,5 +55,9 @@ namespace Entity_BookViewer.MVVM.Views
 
         private void FilterComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
             => App.Container.GetInstance<AppViewVM>().FilterSelectionChanged(FilterComboBox.SelectedIndex);
+
+        private void TypeComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+            => App.Container.GetInstance<AppViewVM>().TypeSelectionChanged(TypeComboBox.SelectedIndex);
+
     }
 }

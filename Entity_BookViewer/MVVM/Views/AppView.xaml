@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Entity_BookViewer.MVVM.Views"
         mc:Ignorable="d" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
        ResizeMode="NoResize" WindowStyle="None" Icon="https://res.cloudinary.com/kysbv/image/upload/v1663241008/General/sql_icon.png"
-        WindowStartupLocation="CenterScreen" Title="WolfTaxi" Height="700" Width="900" AllowsTransparency="True" Background="Transparent">
+        WindowStartupLocation="CenterScreen" Title="Book Viewer" Height="700" Width="1000" AllowsTransparency="True" Background="Transparent">
     <Border BorderThickness="0.3" CornerRadius="15" Background="{StaticResource Main_Color}">
         <DockPanel>
 
@@ -76,6 +76,7 @@
                          Foreground="Aqua" 
                          ItemsSource="{Binding TypeNames,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
                          Width="150" Margin="0 25 " 
+                         SelectionChanged="TypeComboBox_SelectionChanged"
                          Style="{StaticResource ComboBoxFlatStyle}" BorderBrush="#FF512DA8"
                          Background="#2c2b3f" />
 
@@ -87,7 +88,12 @@
 
                 <!--#region View-->
 
-                <ListView></ListView>
+                <ListView SelectionMode="Single"
+                Grid.Row="0" Margin="5" Padding="0"
+                ItemsSource="{Binding Books,Mode=OneWay,UpdateSourceTrigger=PropertyChanged}"
+                Name="BooksListView" Height="450" MaxHeight="390" 
+                ItemContainerStyle="{StaticResource BookCard}" HorizontalAlignment="Center" 
+                VerticalAlignment="Center" />
 
                 <!--#endregion-->
 

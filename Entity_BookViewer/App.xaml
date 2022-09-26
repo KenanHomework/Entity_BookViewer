@@ -19,6 +19,7 @@
                 <ResourceDictionary Source="Styles/ComboBoxItemStyle.xaml"/>
                 <ResourceDictionary Source="Styles/TooltipStyle.xaml"/>
                 <ResourceDictionary Source="Styles/ScrollBarStyle.xaml"/>
+                <ResourceDictionary Source="Styles/BookCardStyle.xaml"/>
 
 
             </ResourceDictionary.MergedDictionaries>

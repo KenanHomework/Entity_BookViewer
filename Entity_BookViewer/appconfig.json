@@ -1,5 +1,5 @@
 {
   "ConnectionStrings": {
-    "SqlServerConnection": "Server=ASUS-TUF-KENAN\\KENANSQL;Integrated Security=True;Trusted_Connection=True;Database=Library;"
+    "SqlServerConnection": "Data Source=STHQ0116-13;User ID=admin;Password=admin;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;Initial Catalog=Library;"
   }
-} 
+}

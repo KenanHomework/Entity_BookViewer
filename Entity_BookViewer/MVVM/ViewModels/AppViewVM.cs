@@ -32,6 +32,15 @@ namespace Entity_BookViewer.MVVM.ViewModels
 
         public AppView Window { get; set; }
 
+        private List<Book> books;
+
+
+
+        public List<Book> Books
+        {
+            get { return books; }
+            set { books = value; }
+        }
 
         public List<object> Types
         {
@@ -87,8 +96,6 @@ namespace Entity_BookViewer.MVVM.ViewModels
 
         public void FilterSelectionChanged(int index)
         {
-
-            List<object> list = new();
             object selected = Filters[index];
 
             using (LibraryContext context = new(App.Options))
@@ -102,6 +109,24 @@ namespace Entity_BookViewer.MVVM.ViewModels
             Window.TypeComboBox.ItemsSource = null;
             Window.TypeComboBox.ItemsSource = Types;
 
+        }
+
+        public void TypeSelectionChanged(int index)
+        {
+            if (index < 0)
+                Books.Clear();
+            else
+                using (LibraryContext context = new(App.Options))
+                {
+                    Books = context.Books.GetMathedItems(Types[index]);
+                }
+            RefreshList();
+        }
+
+        public void RefreshList()
+        {
+            Window.BooksListView.ItemsSource = null;
+            Window.BooksListView.ItemsSource = Books;
         }
 
         #endregion
